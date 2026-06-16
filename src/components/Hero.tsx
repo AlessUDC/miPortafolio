@@ -12,7 +12,7 @@ export default function Hero() {
         </div>
 
         <h1 className="font-heading text-[44px] min-[410px]:text-5xl md:text-7xl lg:text-8xl xl:text-7xl font-extrabold mb-6 leading-tight tracking-tight text-left text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-purple-400 to-blue-400 animate-gradient-x">
-          Creamos plataformas web que convierten visitas en clientes.
+          Creo tu plataforma para convertir tus visitas en clientes
         </h1>
 
         <p className="text-base min-[410px]:text-lg md:text-2xl lg:text-4xl xl:text-2xl font-semibold text-gray-400 text-left mb-8 max-w-2xl lg:max-w-3xl leading-relaxed">
