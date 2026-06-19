@@ -1,14 +1,15 @@
 "use client"
 
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 import type { ProjectData } from './ProjectCard';
 
 const projectsData: ProjectData[] = [
   {
     id: '1',
-    title: 'Gestor Bibliotecario para una universidad',
-    description: 'Aplicación web diseñada para la automatización de procesos en bibliotecas universitarias. Permite el registro eficiente de libros, la gestión de usuarios, el control de préstamos y la generación de reportes detallados, mejorando significativamente la eficiencia operativa del personal bibliotecario.',
+    title: 'Sistema de Gestión y Automatización de Procesos',
+    description: 'Plataforma web integral que digitaliza y automatiza tareas administrativas, reduciendo tiempos de gestión operativa en un 70%. Diseñada con actualización en tiempo real mediante WebSockets, reportes automáticos y accesos seguros para garantizar el control total de las operaciones diarias de la organización.',
     image: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     category: 'fullstack',
     testCredentials: [
@@ -62,8 +63,8 @@ const projectsData: ProjectData[] = [
   },
   {
     id: '2',
-    title: 'Réplica de Página Web de Interbank',
-    description: 'Réplica del diseño de la página web de Interbank. Este proyecto fue desarrollado con el objetivo de recrear visualmente la interfaz de usuario del banco Interbank utilizando tecnologías modernas de desarrollo web. El proyecto sirvió como un ejercicio práctico para aplicar y mejorar habilidades en diseño responsivo, layouts complejos y integración con componentes interactivos. La réplica incluye secciones clave como la cabecera de navegación, carruseles de productos, formularios de contacto y pies de página, manteniendo la estética y la experiencia de usuario del sitio original.',
+    title: 'Interfaz Web de Alta Conversión (Estilo Interbank)',
+    description: 'Desarrollo pixel-perfect de una plataforma bancaria moderna, enfocada en la navegación fluida y en maximizar la conversión de usuarios a clientes. Totalmente responsiva y optimizada para carga ultra rápida, garantizando una excelente experiencia en dispositivos móviles y de escritorio.',
     image: 'https://mir-s3-cdn-cf.behance.net/projects/404/1af40c58358537.Y3JvcCwxNDAzLDEwOTgsMCww.png',
     category: 'frontend',
     tags: [
@@ -86,8 +87,8 @@ const projectsData: ProjectData[] = [
   },
   {
     id: '3',
-    title: 'Réplica de Página Web de Toyota Perú',
-    description: 'Réplica del diseño de la página web de Toyota Perú. Este proyecto fue desarrollado con la finalidad de mejorar habilidades en diseño responsivo, layouts complejos y integración con componentes interactivos. La réplica incluye secciones clave como la cabecera de navegación, carruseles de productos, formularios de contacto y pies de página, manteniendo la estética y la experiencia de usuario del sitio original.',
+    title: 'Réplica de Catálogo Web (Estilo Toyota Perú)',
+    description: 'Réplica responsiva y optimizada para e-commerce de Toyota Perú, enfocada en facilitar la visualización del catálogo de productos y maximizar la interacción del usuario. Estructurada bajo buenas prácticas de UI/UX para aumentar el tráfico y captación de clientes potenciales.',
     image: 'https://www.toyotaperu.com.pe/sites/default/files/2025-03/cabecera-ofertas-y-promociones-mobile.webp',
     category: 'frontend',
     tags: [
@@ -105,8 +106,8 @@ const projectsData: ProjectData[] = [
   },
   {
     id: '4',
-    title: 'Réplica de Página Web ABR Grupo Consultor',
-    description: 'Proyecto encargado por ABR Grupo Consultor para mejorar la experiencia de usuario y la interfaz de su página web. El proyecto consistió en el rediseño de la página web, mejorando la experiencia de usuario y la interfaz de usuario.',
+    title: 'Rediseño Web Estratégico (ABR Grupo Consultor)',
+    description: 'Rediseño web enfocado en mejorar la identidad digital y la generación de leads calificados de ABR Grupo Consultor. La nueva experiencia optimiza la navegación y facilita la solicitud directa de asesorías.',
     image: 'https://www.abrgrupoconsultor.pe/images/service_formalizacion.webp',
     category: 'frontend',
     tags: [
@@ -124,8 +125,8 @@ const projectsData: ProjectData[] = [
   },
   {
     id: '5',
-    title: 'Backend de LibraryManager',
-    description: 'Backend de LibraryManager, desarrollado para gestionar libros y usuarios. Usa PostgreSQL como base de datos, prisma como ORM, JWT para autenticación, NestJS para el framework, UUID como generador de IDs, nodeMailer como cliente de envío de correos, entre otros.',
+    title: 'Servicio de Backend de Alta Disponibilidad',
+    description: 'Servicio de backend robusto y de alto rendimiento que centraliza y protege toda la lógica del negocio. Implementa autenticación segura con JWT, automatización de notificaciones por correo y bases de datos relacionales optimizadas para manejar altas cargas de tráfico diario.',
     image: 'https://www.ionos.es/digitalguide/fileadmin/DigitalGuide/Teaser/archivierung-t.jpg',
     category: 'backend',
     tags: [
@@ -156,8 +157,8 @@ const projectsData: ProjectData[] = [
   },
   {
     id: '6',
-    title: 'Frontend de LibraryManager',
-    description: 'Frontend de LibraryManager, implementado como producto final junto con su backend.',
+    title: 'Interfaz Administrativa con Analíticas e Interacciones QR',
+    description: 'Interfaz de usuario interactiva y optimizada para la administración operativa. Cuenta con paneles analíticos interactivos con gráficos en tiempo real, lector de códigos QR para agilizar los préstamos y flujos de trabajo dinámicos con arrastrar y soltar.',
     image: 'https://img.freepik.com/foto-gratis/tiro-medio-mujer-auriculares-alrededor-cuello-leyendo-book0_23-2148397145.jpg?semt=ais_hybrid&w=740&q=80',
     category: 'frontend',
     tags: [
@@ -189,8 +190,8 @@ const projectsData: ProjectData[] = [
   },
   {
     id: '7',
-    title: 'Prototipo de Aula Virtual para una universidad',
-    description: 'Este prototipo fue creado y pensado para usuarios estudiantes y docentes de una universidad, con el objetivo de que el alumno pueda acceder a su información académica y a las clases, mientras que el docente pueda acceder a la información de sus estudiantes y a las clases.',
+    title: 'Aula Virtual Universitaria (LMS)',
+    description: 'Prototipo funcional de plataforma educativa (LMS) diseñado para centralizar recursos académicos. Estructura el acceso diferenciado a estudiantes y docentes con una interfaz intuitiva para la gestión de clases, notas y reportes.',
     image: 'https://i.pinimg.com/736x/a3/02/61/a302615ab03df90ff931303f65e24170.jpg',
     category: 'frontend',
     testCredentials: [
@@ -219,14 +220,23 @@ export default function Projects() {
   );
 
   return (
-    <main className="py-24 px-8 relative z-10" id="projects">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-white">Portafolio de Proyectos</h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Una muestra de plataformas web y aplicaciones a medida diseñadas bajo altos estándares de rendimiento, escalabilidad y diseño funcional.
+    <main className="py-24 px-8 lg:px-20 relative z-10 bg-complementary-950" id="projects">
+      {/* Background decoration */}
+      <div className="absolute top-1/3 left-10 w-[50%] h-[40%] rounded-full bg-primary-500/5 blur-[130px] pointer-events-none"></div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="font-syne text-3xl md:text-5xl font-bold mb-4 md:mb-6 lg:mb-8 text-white">Proyectos que generan resultados</h2>
+          <p className="text-gray-400 text-lg md:text-xl lg:text-xl max-w-2xl mx-auto font-light">
+            Una muestra de plataformas web y aplicaciones a medida diseñadas bajo altos estándares de rendimiento, escalabilidad y diseño funcional para potenciar negocios.
           </p>
-        </div>
+        </motion.div>
 
         {/* Filter Controls */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -234,9 +244,9 @@ export default function Projects() {
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${filter === f
-                ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
-                : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white'
+              className={`px-6 py-2.5 rounded-full text-sm lg:text-base font-medium transition-all duration-300 cursor-pointer ${filter === f
+                ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30'
+                : 'bg-complementary-800 text-gray-400 hover:bg-complementary-700 hover:text-white'
                 }`}
             >
               {f === 'all' ? 'Todos' : f.charAt(0).toUpperCase() + f.slice(1)}
@@ -245,11 +255,25 @@ export default function Projects() {
         </div>
 
         {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, idx) => (
+              <motion.div
+                layout
+                key={project.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+              >
+                <ProjectCard project={project} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </main>
   );
