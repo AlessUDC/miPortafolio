@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: "Paolo Ursua",
     images: [
       {
-        url: "public/og-image.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 1200,
         alt: "Paolo Ursua | Ingeniero de Sistemas & Desarrollador Web.",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Paolo Ursua | Ingeniero de Sistemas & Desarrollador Web.",
     description: "Desarrollo soluciones web modernas, funcionales y enfocadas en ofrecer una excelente experiencia para tus usuarios.",
-    images: ["public/og-image.png"],
+    images: ["/og-image.jpg"],
   },
 };
 
