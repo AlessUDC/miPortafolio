@@ -5,8 +5,31 @@ import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/context/ThemeContext";
 
 export const metadata: Metadata = {
-  title: "Desarrollador Web Portfolio | Plantilla Premium",
-  description: "Plantilla de portafolio premium y moderna para un ingeniero desarrollador web con bio, proyectos de GitHub e integración de redes sociales.",
+  metadataBase: new URL("https://paolo-ursua.vercel.app/"),
+  title: "Paolo Ursua | Ingeniero de Sistemas & Desarrollador Web.",
+  description: "Desarrollo soluciones web modernas, funcionales y enfocadas en ofrecer una excelente experiencia para tus usuarios.",
+  openGraph: {
+    title: "Paolo Ursua | Ingeniero de Sistemas & Desarrollador Web.",
+    description: "Desarrollo soluciones web modernas, funcionales y enfocadas en ofrecer una excelente experiencia para tus usuarios.",
+    url: "https://paolo-ursua.vercel.app/",
+    siteName: "Paolo Ursua",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 1200,
+        alt: "Paolo Ursua | Ingeniero de Sistemas & Desarrollador Web.",
+      },
+    ],
+    locale: "es_ES",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Paolo Ursua | Ingeniero de Sistemas & Desarrollador Web.",
+    description: "Desarrollo soluciones web modernas, funcionales y enfocadas en ofrecer una excelente experiencia para tus usuarios.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
