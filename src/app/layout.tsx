@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     description: "Desarrollo soluciones web modernas, funcionales y enfocadas en ofrecer una excelente experiencia para tus usuarios.",
     images: ["/og-image.jpg"],
   },
+  facebook: {
+    appId: "1234567890",
+  },
 };
 
 export default function RootLayout({
