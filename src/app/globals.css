@@ -1,6 +1,37 @@
 @import "tailwindcss";
 
+/* 1. Definición de Variables CSS Dinámicas (Modo Claro / Oscuro) */
+:root {
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-brand-gray-bg: #f1f5f9;
+  --text-brand-gray-dark: #0f172a;
+  --text-brand-gray-light: #64748b;
+  --border-brand-gray-border: #e2e8f0;
+  --color-placeholder: #94a3b8;
+  --color-focus: #5875f5;
+  /* primary-500 */
+}
+
+.dark {
+  --bg-app: #050811;
+  /* complementary-950 */
+  --bg-surface: #0b0f19;
+  /* complementary-900 */
+  --bg-brand-gray-bg: #0f172a;
+  /* complementary-800 */
+  --text-brand-gray-dark: #f8fafc;
+  /* complementary-50 */
+  --text-brand-gray-light: #94a3b8;
+  --border-brand-gray-border: #1e293b;
+  --color-placeholder: #475569;
+  --color-focus: #819bfa;
+  /* primary-400 */
+}
+
+/* 2. Configuración y Mapeo de Tailwind CSS v4 */
 @theme {
+  /* Conservar colores fijos existentes */
   --color-primary-50: #f0f5ff;
   --color-primary-100: #e0eaff;
   --color-primary-200: #c7d8fe;
@@ -18,6 +49,16 @@
   --color-complementary-900: #0b0f19;
   --color-complementary-950: #050811;
 
+  /* Mapeo de Variables Semánticas Dinámicas */
+  --color-surface: var(--bg-surface);
+  --color-brand-gray-bg: var(--bg-brand-gray-bg);
+  --color-brand-gray-dark: var(--text-brand-gray-dark);
+  --color-brand-gray-light: var(--text-brand-gray-light);
+  --color-brand-gray-border: var(--border-brand-gray-border);
+  --color-brand-placeholder: var(--color-placeholder);
+  --color-brand-focus: var(--color-focus);
+
+  /* Animaciones existentes */
   --animate-shimmer: shimmer 2s infinite;
   --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-gradient-x: gradient-x 6s ease infinite;
@@ -64,4 +105,39 @@
       transform: rotate(360deg);
     }
   }
+}
+
+/* CORRECTO: La variante personalizada se registra FUERA del bloque @theme */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 3. Reglas Base Globales */
+body {
+  background-color: var(--bg-app);
+  color: var(--text-brand-gray-dark);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Estilo de selección adaptativo */
+::selection {
+  background-color: var(--color-focus);
+  color: #ffffff;
+}
+
+/* Barras de desplazamiento (Scrollbars) adaptativas */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-brand-gray-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-placeholder);
 }

@@ -38,7 +38,7 @@ const valueBenefitsData: ValueBenefit[] = [
 
 export default function ValueBenefits() {
   return (
-    <section className="py-24 px-8 lg:px-20 relative z-10 bg-complementary-900/10" id="value-benefits">
+    <section className="py-24 px-8 lg:px-20 relative z-10 bg-gray-50/50 dark:bg-complementary-900/10" id="value-benefits">
       <div className="max-w-6xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -47,13 +47,13 @@ export default function ValueBenefits() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-xs lg:text-sm font-semibold uppercase tracking-wider text-primary-400 px-4 py-2 bg-primary-500/10 border border-primary-500/20 rounded-full">
+          <span className="text-xs lg:text-sm font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 px-4 py-2 bg-primary-50 dark:bg-primary-500/10 border border-primary-100 dark:border-primary-500/20 rounded-full">
             El Valor de un Buen Desarrollo
           </span>
-          <h2 className="font-syne text-3xl md:text-5xl font-extrabold mt-6 mb-6 text-white">
+          <h2 className="font-syne text-3xl md:text-5xl font-extrabold mt-6 mb-6 text-gray-900 dark:text-white">
             ¿Por qué construir tu plataforma conmigo?
           </h2>
-          <p className="text-gray-400 text-lg md:text-[22px] lg:text-xl max-w-2xl mx-auto font-light">
+          <p className="text-gray-600 dark:text-gray-400 text-lg md:text-[22px] lg:text-xl max-w-2xl mx-auto font-light">
             La diferencia entre tener una página web que solo existe y una plataforma optimizada que genera resultados.
           </p>
         </motion.div>
@@ -62,25 +62,25 @@ export default function ValueBenefits() {
           {valueBenefitsData.map((item, idx) => (
             <motion.div
               key={idx}
-              className="group flex gap-5 p-6 bg-complementary-900/20 border border-gray-800/60 rounded-2xl hover:border-primary-500/30 hover:shadow-[0_10px_35px_-10px_rgba(88,117,245,0.12)] transition-all duration-300 backdrop-blur-sm"
+              className="group flex gap-5 p-6 bg-white dark:bg-complementary-900/20 border border-gray-200 dark:border-gray-800/60 rounded-2xl hover:border-primary-500/30 hover:shadow-[0_10px_35px_-10px_rgba(88,117,245,0.12)] transition-all duration-300 backdrop-blur-sm"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
             >
-              <div className="shrink-0 w-12 h-12 rounded-xl bg-complementary-800/80 flex items-center justify-center text-xl transition-all duration-300 group-hover:scale-110">
+              <div className="shrink-0 w-12 h-12 rounded-xl bg-gray-100 dark:bg-complementary-800/80 flex items-center justify-center text-xl transition-all duration-300 group-hover:scale-110">
                 <i className={item.iconClass}></i>
               </div>
               <div>
                 <div className="flex flex-wrap items-center gap-2 mb-2">
-                  <h3 className="text-lg md:text-xl lg:text-xl font-bold text-white transition-colors duration-300 group-hover:text-primary-300 font-syne">{item.title}</h3>
+                  <h3 className="text-lg md:text-xl lg:text-xl font-bold text-gray-900 dark:text-white transition-colors duration-300 group-hover:text-primary-600 dark:group-hover:text-primary-300 font-syne">{item.title}</h3>
                   {item.stat && (
-                    <span className="text-[10px] lg:text-xs font-semibold bg-primary-500/10 text-primary-400 border border-primary-500/20 px-2.5 py-0.5 rounded-full">
+                    <span className="text-[10px] lg:text-xs font-semibold bg-primary-50 dark:bg-primary-500/10 text-primary-600 dark:text-primary-400 border border-primary-100 dark:border-primary-500/20 px-2.5 py-0.5 rounded-full">
                       {item.stat}
                     </span>
                   )}
                 </div>
-                <p className="text-gray-400 text-sm md:text-base lg:text-base leading-relaxed font-light">{item.description}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base lg:text-base leading-relaxed font-light">{item.description}</p>
               </div>
             </motion.div>
           ))}

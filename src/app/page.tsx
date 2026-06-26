@@ -3,15 +3,17 @@ import Benefits from '@/components/Benefits';
 import ValueBenefits from '@/components/ValueBenefits';
 import Process from '@/components/Process';
 import Projects from '@/components/Projects';
+import Contact from '@/components/Contact';
 
 export default function Home() {
   return (
-    <>
-      <Hero />
-      <Benefits />
+    <main>
+      <div id="inicio"><Hero /></div>
+      <div id="beneficios"><Benefits /></div>
       <ValueBenefits />
       <Process />
-      <Projects />
-    </>
+      <div id="proyectos"><Projects /></div>
+      <div id="contacto"><Contact /></div>
+    </main>
   );
 }
