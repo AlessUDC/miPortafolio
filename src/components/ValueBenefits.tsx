@@ -11,14 +11,14 @@ interface ValueBenefit {
 
 const valueBenefitsData: ValueBenefit[] = [
   {
-    title: 'Velocidad de carga que retiene clientes',
+    title: 'Velocidad de carga con Web Vitals Optimizados',
     description: 'Cada segundo extra de carga reduce tus conversiones. Desarrollo con optimización de calidad para que tu sitio responda al instante en cualquier conexión.',
     stat: '90+ Mobile Speed',
     iconClass: 'fa-solid fa-bolt text-yellow-400',
   },
   {
-    title: 'Diseño enfocado en la conversión móvil',
-    description: 'La mayoría de tus visitas llegan desde dispositivos móviles. Creo interfaces adaptables e intuitivas pensadas para guiar al usuario hacia la compra o contacto.',
+    title: 'Diseño Responsive & UX Práctico',
+    description: 'Creo interfaces adaptables e intuitivas con layouts fluidos (Flexbox/Grid) y Mobile First pensadas para guiar al usuario hacia la compra o contacto.',
     stat: '100% Responsivo',
     iconClass: 'fa-solid fa-mobile-screen-button text-primary-400',
   },

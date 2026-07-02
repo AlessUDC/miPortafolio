@@ -230,7 +230,7 @@ export default function Projects() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-syne text-3xl md:text-5xl font-bold mb-4 md:mb-6 lg:mb-8 text-gray-900 dark:text-white">Proyectos que generan resultados</h2>
+          <h2 className="font-syne text-3xl md:text-5xl font-bold mb-4 md:mb-6 lg:mb-8 text-gray-900 dark:text-white">Proyectos donde demuestro mi capacidad para resolver retos técnicos</h2>
           <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl lg:text-xl max-w-2xl mx-auto font-light">
             Una muestra de plataformas web y aplicaciones a medida diseñadas bajo altos estándares de rendimiento, escalabilidad y diseño funcional para potenciar negocios.
           </p>

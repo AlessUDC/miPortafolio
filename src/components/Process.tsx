@@ -13,14 +13,14 @@ interface ProcessStep {
 const processSteps: ProcessStep[] = [
   {
     step: '01',
-    title: 'Diagnóstico & Estrategia',
-    description: 'Analizamos tus objetivos de negocio, las necesidades de tus clientes y definimos los requerimientos técnicos en una sesión inicial de planificación.',
+    title: 'Análisis de Requerimientos Técnicos',
+    description: 'Definimos el stack, las funcionalidades clave y el alcance del código a desarrollar.',
     iconClass: 'fa-solid fa-magnifying-glass-chart',
     colorClass: 'text-primary-600 dark:text-primary-400 border-primary-200 dark:border-primary-500/20 bg-primary-50 dark:bg-primary-500/5',
   },
   {
     step: '02',
-    title: 'Propuesta y Plan de Acción',
+    title: 'Plan de Desarrollo y Arquitectura',
     description: 'Te presento una propuesta detallada que incluye la arquitectura tecnológica recomendada, los plazos de entrega estructurados y una cotización clara.',
     iconClass: 'fa-regular fa-file-lines',
     colorClass: 'text-purple-600 dark:text-purple-400 border-purple-200 dark:border-purple-500/20 bg-purple-50 dark:bg-purple-500/5',
@@ -28,14 +28,14 @@ const processSteps: ProcessStep[] = [
   {
     step: '03',
     title: 'Desarrollo Ágil e Interactivo',
-    description: 'Construyo la plataforma compartiendo contigo avances de forma periódica. Así puedes validar la experiencia de usuario y el diseño en tiempo real.',
+    description: 'Construyo la plataforma compartiendo contigo avances de forma periódica en Git y Github. Así puedes validar la experiencia de usuario y el diseño en tiempo real.',
     iconClass: 'fa-solid fa-laptop-code',
     colorClass: 'text-emerald-600 dark:text-emerald-400 border-emerald-200 dark:border-emerald-500/20 bg-emerald-50 dark:bg-emerald-500/5',
   },
   {
     step: '04',
-    title: 'Optimización y Lanzamiento',
-    description: 'Realizo pruebas de velocidad y seguridad. Configuramos el hosting, desplegamos la plataforma y garantizo un soporte de acompañamiento post-lanzamiento.',
+    title: 'Pruebas, despliegue y mantenimiento',
+    description: 'Realizo pruebas de velocidad y seguridad. Configuramos los tests finales, despliegue en producción (CI/CD simple en Vercel/Netlify), el hosting y soporte de post-lanzamiento técnico.',
     iconClass: 'fa-solid fa-rocket',
     colorClass: 'text-pink-600 dark:text-pink-400 border-pink-200 dark:border-pink-500/20 bg-pink-50 dark:bg-pink-500/5',
   }

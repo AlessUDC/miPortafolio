@@ -36,10 +36,10 @@ const NavLinks = ({ onClick }: { onClick?: () => void }) => (
             Beneficios
         </Link>
         <Link href="#value-benefits" onClick={onClick} className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors shrink-0 font-medium">
-            Propuesta de Valor
+            Habilidades
         </Link>
         <Link href="#process" onClick={onClick} className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors shrink-0 font-medium">
-            Cómo Trabajaremos Juntos
+            Mi Flujo De Trabajo
         </Link>
         <Link href="#projects" onClick={onClick} className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors shrink-0 font-medium">
             Proyectos
@@ -158,7 +158,7 @@ export default function Header() {
                             font-medium
                             "
                         >
-                            <a href="#contacto">Cuéntame tu idea</a>
+                            <a href="#contacto">Contáctame</a>
                         </button>
                     </div>
 

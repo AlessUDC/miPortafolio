@@ -12,22 +12,22 @@ interface BenefitItem {
 
 const benefitsData: BenefitItem[] = [
   {
-    title: 'Construyo tu plataforma de alto rendimiento',
-    description: 'Diseño y desarrollo aplicaciones web rápidas, escalables y optimizadas. Estructuro tu embudo digital para guiar a tus visitas directo a la acción.',
+    title: 'Desarrollo Full-Stack / Front-End ',
+    description: 'Creación de páginas web utilizando React/TypeScript. Modularización de componentes y maquetación con Tailwind CSS.',
     badge: 'Desarrollo desde cero',
     iconClass: 'fa-solid fa-layer-group',
     gradientClass: 'from-primary-500 to-purple-500',
   },
   {
-    title: 'Mejoro tus servicios web existentes',
-    description: '¿Tu plataforma actual es lenta, inestable o difícil de actualizar? Analizo e implemento mejoras críticas de rendimiento, seguridad y experiencia de usuario.',
+    title: 'Refactorización y Optimización de Performance',
+    description: 'Depuración de bases de código (debugging), reducción de bundles, implementación de Web Vitals y mejoras de seguridad OWASP básica.',
     badge: 'Optimización y Rediseño',
     iconClass: 'fa-solid fa-gauge-high',
     gradientClass: 'from-purple-500 to-primary-600',
   },
   {
-    title: 'Automatizo y conecto tus procesos de negocio',
-    description: 'Integro pasarelas de pago, APIs de terceros, bases de datos y sistemas de reportes en tiempo real para reducir costes operativos y hacer que tu negocio funcione sin fricciones.',
+    title: 'Integración de APIs y Backend',
+    description: 'Consumo y creación de APIs REST con Node.js/Express. Configuración de bases de datos relacionales (SQL) y no relacionales (NoSQL), y WebSockets para tiempo real.',
     badge: 'Integración y Backend',
     iconClass: 'fa-solid fa-gears',
     gradientClass: 'from-primary-400 to-emerald-500',
@@ -49,7 +49,7 @@ export default function Benefits() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-syne text-3xl md:text-5xl font-extrabold mb-4 lg:mb-6 text-gray-900 dark:text-white">
-            Conmigo podrás...
+            Capacidades Técnicas
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-lg md:text-[22px] lg:text-xl max-w-2xl mx-auto font-light">
             Hacer crecer tu negocio digital con soluciones tecnológicas pensadas para vender más y operar mejor.

@@ -12,11 +12,11 @@ export default function Hero() {
         </div>
 
         <h1 className="font-syne text-[44px] min-[410px]:text-5xl md:text-7xl lg:text-8xl xl:text-7xl font-extrabold mb-6 leading-tight tracking-tight text-left text-transparent bg-clip-text bg-linear-to-r from-primary-600 via-primary-500 to-purple-600 dark:from-primary-400 dark:via-primary-300 dark:to-purple-400 animate-gradient-x">
-          Creo tu plataforma para convertir tus visitas en clientes
+          Construyo aplicaciones web modernas, rápidas y escalables
         </h1>
 
         <p className="text-base min-[410px]:text-lg md:text-2xl lg:text-4xl xl:text-2xl font-light text-gray-600 dark:text-gray-400 text-left mb-8 max-w-2xl lg:max-w-3xl leading-relaxed">
-          Soluciones tecnológicas a medida diseñadas para acelerar las ventas, optimizar la experiencia de tus usuarios y escalar tu negocio digital.
+          Me especializo en el ecosistema JavaScript/TypeScript. Domino React, Next.js y Node.js. Mi enfoque es en código limpio, responsive design y rendimiento optimizado para producción
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 min-[410px]:gap-6 w-full sm:w-auto">

@@ -149,7 +149,7 @@ export default function Contact() {
 
                             <div className="space-y-2 md:space-y-3">
                                 <label className="text-lg md:text-lg font-medium text-gray-700 dark:text-gray-300 ml-1 inline-block">
-                                    Tu Idea
+                                    Asunto
                                 </label>
                                 <input
                                     type="text"
