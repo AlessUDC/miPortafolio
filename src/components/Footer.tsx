@@ -8,10 +8,10 @@ export default function Footer() {
                 {/* Logo e Info */}
                 <div className="flex flex-col items-center md:items-start gap-2 text-center md:text-left">
                     <Link
-                        href="#top"
+                        href="/"
                         className="
                             font-bold
-                            text-2xl
+                            text-3xl
                             bg-linear-to-r
                             from-blue-600
                             to-purple-600
@@ -23,25 +23,28 @@ export default function Footer() {
                     >
                         Paolo Ursua
                     </Link>
-                    <p className="text-gray-650 dark:text-gray-400 text-sm max-w-xs">
+                    <p className="text-gray-650 dark:text-gray-400 text-base max-w-xs">
                         Creando experiencias web modernas, escalables y orientadas al usuario.
                     </p>
                 </div>
 
                 {/* Enlaces Rápidos */}
                 <div className="flex flex-col gap-4">
-                    <p className="text-gray-900 dark:text-white font-semibold">Enlaces rápidos</p>
-                    <nav className="flex flex-col flex-wrap items-center md:items-start gap-4 text-sm text-gray-600 dark:text-gray-400 font-medium">
-                        <Link href="#inicio" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <p className="text-gray-900 dark:text-white font-semibold text-lg">Enlaces rápidos</p>
+                    <nav className="flex flex-col flex-wrap items-center md:items-start gap-4 text-base text-gray-600 dark:text-gray-400 font-medium">
+                        <Link href="/about-me" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            Sobre mí
+                        </Link>
+                        <Link href="/#inicio" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                             Inicio
                         </Link>
-                        <Link href="#beneficios" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                            Beneficios
+                        <Link href="/#tech-caps" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            Capacidades Técnicas
                         </Link>
-                        <Link href="#proyectos" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        <Link href="/#proyectos" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                             Proyectos
                         </Link>
-                        <Link href="#contacto" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        <Link href="/#contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                             Contacto
                         </Link>
                     </nav>
@@ -80,7 +83,7 @@ export default function Footer() {
             </div>
 
             {/* Copyright */}
-            <div className="mt-12 pt-8 border-t border-gray-200/50 dark:border-white/5 text-center text-gray-500 text-sm">
+            <div className="mt-12 pt-8 border-t border-gray-200/50 dark:border-white/5 text-center text-gray-500 text-base">
                 <p>&copy; {new Date().getFullYear()} Paolo Ursua. Todos los derechos reservados.</p>
             </div>
         </footer>

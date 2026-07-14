@@ -6,39 +6,39 @@ interface ValueBenefit {
   title: string;
   description: string;
   stat?: string;
-  iconClass: string;
 }
 
 const valueBenefitsData: ValueBenefit[] = [
   {
-    title: 'Velocidad de carga con Web Vitals Optimizados',
-    description: 'Cada segundo extra de carga reduce tus conversiones. Desarrollo con optimización de calidad para que tu sitio responda al instante en cualquier conexión.',
-    stat: '90+ Mobile Speed',
-    iconClass: 'fa-solid fa-bolt text-yellow-400',
+    title: 'Entiendo el problema antes de escribir código',
+    description: `Reviso requerimientos, casos límite y restricciones técnicas antes de tocar el editor.
+    `,
   },
   {
-    title: 'Diseño Responsive & UX Práctico',
-    description: 'Creo interfaces adaptables e intuitivas con layouts fluidos (Flexbox/Grid) y Mobile First pensadas para guiar al usuario hacia la compra o contacto.',
-    stat: '100% Responsivo',
-    iconClass: 'fa-solid fa-mobile-screen-button text-primary-400',
+    title: 'Desarrollo la solución de manera sencilla',
+    description: `Integro herramientas de Inteligencia Artificial para acelerar mi desarrollo del código,
+    optimizando tiempos de entrega. Me propongo a trabajar de la mano de metodologías ágiles 
+    como SCRUM para mantener orden en el desarrollo de la solución, además de usar Git para un seguimiento 
+    de cambios realizados.
+
+    `,
   },
   {
-    title: 'Arquitectura escalable',
-    description: 'Tu plataforma crecerá al mismo ritmo que tu negocio. Optimizo el desarrollo mediante ingeniería de software asistida por IA, sin sacrificar la rigurosidad técnica ni los estándares de la industria.',
-    stat: 'Código Limpio',
-    iconClass: 'fa-solid fa-code-branch text-purple-400',
+    title: 'Pruebas antes de entregar',
+    description: `Me encargo de que la solución sea eficaz, o de que el producto cumpla su propósito para
+    evitar fallas en producción. Hago pruebas en diferentes escenarios si se trata de un sistema web, o si es
+    es una solución secundaria trato de comprender en cómo afecta mi solución al sistema. Me mentalizo como un QA Tester para
+    entregar un producto de calidad.`,
   },
   {
-    title: 'Trato directo y soluciones reales',
-    description: 'Olvídate de intermediarios o agencias lentas. Tratas directamente conmigo para definir prioridades, implementar cambios rápidos y obtener soporte continuo.',
-    stat: 'Soporte Directo',
-    iconClass: 'fa-solid fa-comments text-emerald-400',
+    title: 'Documento decisiones, no solo el código',
+    description: 'Dejo constancia del porqué detrás de una decisión de arquitectura, no solo del qué. De esta manera se facilita el mantenimiento del código y la escalabilidad de la solución.',
   }
 ];
 
 export default function ValueBenefits() {
   return (
-    <section className="py-24 px-8 lg:px-20 relative z-10 bg-gray-50/50 dark:bg-complementary-900/10" id="value-benefits">
+    <section className="py-24 px-8 lg:px-20 relative z-10 bg-gray-50/50 dark:bg-complementary-900/10" id="workflow">
       <div className="max-w-6xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -50,37 +50,30 @@ export default function ValueBenefits() {
           <span className="text-xs lg:text-sm font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 px-4 py-2 bg-primary-50 dark:bg-primary-500/10 border border-primary-100 dark:border-primary-500/20 rounded-full">
             El Valor de un Buen Desarrollo
           </span>
-          <h2 className="font-syne text-3xl md:text-5xl font-extrabold mt-6 mb-6 text-gray-900 dark:text-white">
-            ¿Por qué construir tu plataforma conmigo?
+          <h2 className="font-syne text-2xl md:text-4xl font-extrabold mt-6 mb-6 text-gray-900 dark:text-white">
+            ¿Cómo es que trabajo?
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg md:text-[22px] lg:text-xl max-w-2xl mx-auto font-light">
+          <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg lg:text-xl max-w-2xl mx-auto font-light">
             La diferencia entre tener una página web que solo existe y una plataforma optimizada que genera resultados.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
           {valueBenefitsData.map((item, idx) => (
             <motion.div
               key={idx}
-              className="group flex gap-5 p-6 bg-white dark:bg-complementary-900/20 border border-gray-200 dark:border-gray-800/60 rounded-2xl hover:border-primary-500/30 hover:shadow-[0_10px_35px_-10px_rgba(88,117,245,0.12)] transition-all duration-300 backdrop-blur-sm"
+              className="group flex gap-9 p-6 bg-white dark:bg-complementary-900/20 border border-gray-200 dark:border-gray-800/60 rounded-2xl hover:border-primary-500/30 hover:shadow-[0_10px_35px_-10px_rgba(88,117,245,0.12)] transition-all duration-300 backdrop-blur-sm"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
             >
-              <div className="shrink-0 w-12 h-12 rounded-xl bg-gray-100 dark:bg-complementary-800/80 flex items-center justify-center text-xl transition-all duration-300 group-hover:scale-110">
-                <i className={item.iconClass}></i>
-              </div>
+              <h1 className='py-3 lg:text-2xl 2xl:text-xl'>0{idx + 1}</h1>
               <div>
                 <div className="flex flex-wrap items-center gap-2 mb-2">
-                  <h3 className="text-lg md:text-xl lg:text-xl font-bold text-gray-900 dark:text-white transition-colors duration-300 group-hover:text-primary-600 dark:group-hover:text-primary-300 font-syne">{item.title}</h3>
-                  {item.stat && (
-                    <span className="text-[10px] lg:text-xs font-semibold bg-primary-50 dark:bg-primary-500/10 text-primary-600 dark:text-primary-400 border border-primary-100 dark:border-primary-500/20 px-2.5 py-0.5 rounded-full">
-                      {item.stat}
-                    </span>
-                  )}
+                  <h3 className="text-base md:text-lg lg:text-xl 2xl:text-xl font-bold text-gray-900 dark:text-white transition-colors duration-300 group-hover:text-primary-600 dark:group-hover:text-primary-300 font-syne">{item.title}</h3>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base lg:text-base leading-relaxed font-light">{item.description}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base lg:text-lg 2xl:text-base leading-relaxed font-light">{item.description}</p>
               </div>
             </motion.div>
           ))}

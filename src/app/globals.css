@@ -107,6 +107,10 @@
   }
 }
 
+html {
+  overflow-x: hidden;
+}
+
 /* CORRECTO: La variante personalizada se registra FUERA del bloque @theme */
 @custom-variant dark (&:where(.dark, .dark *));
 

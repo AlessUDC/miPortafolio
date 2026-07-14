@@ -76,7 +76,7 @@ export default function Contact() {
 
     return (
         <section
-            id="contacto"
+            id="contact"
             className="relative overflow-hidden py-24 px-8 z-1"
         >
             {/* Background Glows */}
@@ -96,11 +96,11 @@ export default function Contact() {
                     <span className="inline-flex items-center px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-semibold tracking-wider uppercase mb-6 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
                         Hablemos
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white">
-                        Convirtamos tu idea en una solución digital <br className="hidden $inline-block" />
+                    <h2 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white">
+                        Hablemos sobre cómo puedo aportar a tu equipo <br className="hidden $inline-block" />
                     </h2>
-                    <p className="mt-6 text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light">
-                        Hablemos de tu proyecto y cómo podemos abordarlo para alcanzar tus objetivos.
+                    <p className="mt-6 text-gray-400 max-w-2xl mx-auto text-base md:text-lg font-light">
+                        Abierto a posiciones como developer frontend, backend o fullstack, y a conversaciones sobre proyectos técnicos. La forma más directa es por correo o LinkedIn.
                     </p>
                 </motion.div>
 
@@ -126,7 +126,7 @@ export default function Contact() {
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
-                                        placeholder="Tu nombre completo"
+                                        placeholder="Nombre completo"
                                         required
                                         className="w-full px-5 py-4 rounded-xl inline-block bg-white dark:bg-black/20 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all"
                                     />
@@ -140,7 +140,7 @@ export default function Contact() {
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
-                                        placeholder="correo@ejemplo.com"
+                                        placeholder="Correo electrónico"
                                         required
                                         className="w-full px-5 py-4 rounded-xl inline-block bg-white dark:bg-black/20 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all"
                                     />
@@ -156,7 +156,7 @@ export default function Contact() {
                                     name="subject"
                                     value={formData.subject}
                                     onChange={handleChange}
-                                    placeholder="¿Sobre qué quieres hablar?"
+                                    placeholder="Asunto a tratar"
                                     required
                                     className="w-full px-5 py-4 rounded-xl inline-block bg-white dark:bg-black/20 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all"
                                 />
@@ -171,7 +171,7 @@ export default function Contact() {
                                     name="message"
                                     value={formData.message}
                                     onChange={handleChange}
-                                    placeholder="Cuéntame los detalles de tu proyecto..."
+                                    placeholder="Cómo es que abordaremos este proyecto"
                                     required
                                     className="w-full px-5 py-4 rounded-xl inline-block bg-white dark:bg-black/20 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
                                 />

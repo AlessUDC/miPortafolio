@@ -32,19 +32,19 @@ const SunIcon = ({ className }: { className?: string }) => (
 
 const NavLinks = ({ onClick }: { onClick?: () => void }) => (
     <>
-        <Link href="#beneficios" onClick={onClick} className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors shrink-0 font-medium">
-            Beneficios
+        <Link href="/about-me" onClick={onClick} className="text-gray-600 xl:text-lg hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors shrink-0 font-medium">
+            Sobre mí
         </Link>
-        <Link href="#value-benefits" onClick={onClick} className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors shrink-0 font-medium">
-            Habilidades
+        <Link href="/#tech-caps" onClick={onClick} className="text-gray-600 xl:text-lg hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors shrink-0 font-medium">
+            Capacidades Técnicas
         </Link>
-        <Link href="#process" onClick={onClick} className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors shrink-0 font-medium">
-            Mi Flujo De Trabajo
+        <Link href="/#workflow" onClick={onClick} className="text-gray-600 xl:text-lg hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors shrink-0 font-medium">
+            Flujo de Trabajo
         </Link>
-        <Link href="#projects" onClick={onClick} className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors shrink-0 font-medium">
+        <Link href="/#projects" onClick={onClick} className="text-gray-600 xl:text-lg hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors shrink-0 font-medium">
             Proyectos
         </Link>
-        <Link href="#contacto" onClick={onClick} className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors shrink-0 font-medium">
+        <Link href="/#contact" onClick={onClick} className="text-gray-600 xl:text-lg hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors shrink-0 font-medium">
             Contacto
         </Link>
     </>
@@ -79,10 +79,10 @@ export default function Header() {
 
                     {/* Logo / Nombre */}
                     <Link
-                        href="#top"
+                        href="/"
                         className="
                             font-bold
-                            text-xl lg:text-2xl
+                            text-lg lg:text-xl
                             bg-linear-to-r
                             from-blue-600
                             to-purple-600
@@ -109,8 +109,8 @@ export default function Header() {
                             md:w-60
                             xl:w-120
                             2xl:w-auto
-                            lg:text-lg lg:w-90
-                            2xl:text-base
+                            lg:text-base lg:w-90
+                            2xl:text-sm
                             2xl:overflow-visible
                             2xl:[mask-image:none]
                             2xl:[-webkit-mask-image:none]
@@ -148,9 +148,9 @@ export default function Header() {
                         {/* CTA */}
                         <button
                             className="
-                            px-4 py-2 lg:px-6 lg:py-2.5
+                            px-4 py-2 lg:px-5 lg:py-2
                             rounded-xl
-                            text-sm lg:text-base
+                            text-sm lg:text-sm
                             bg-blue-600
                             hover:bg-blue-500
                             text-white
@@ -158,7 +158,7 @@ export default function Header() {
                             font-medium
                             "
                         >
-                            <a href="#contacto">Contáctame</a>
+                            <Link href="/#contact">Contactar</Link>
                         </button>
                     </div>
 
@@ -214,7 +214,7 @@ export default function Header() {
                         className="
                         px-6 py-3
                         rounded-xl
-                        text-lg
+                        text-base
                         bg-blue-600
                         hover:bg-blue-500
                         text-white
@@ -223,7 +223,7 @@ export default function Header() {
                         "
                         onClick={() => setIsMenuOpen(false)}
                     >
-                        <a href="#contacto">Cuéntame tu idea</a>
+                        <Link href="/#contact">Contactar</Link>
                     </button>
                 </div>
             </div>

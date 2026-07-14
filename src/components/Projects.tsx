@@ -1,221 +1,60 @@
 "use client"
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ProjectCard from './ProjectCard';
-import type { ProjectData } from './ProjectCard';
-
-const projectsData: ProjectData[] = [
-  {
-    id: '1',
-    title: 'Gestor Bibliotecario para una universidad',
-    description: 'Plataforma web integral que digitaliza y automatiza tareas administrativas, reduciendo tiempos de gestión operativa en un 70%. Diseñada con actualización en tiempo real mediante WebSockets, reportes automáticos y accesos seguros para garantizar el control total de las operaciones diarias de la organización.',
-    image: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    category: 'fullstack',
-    testCredentials: [
-      { role: 'Administrador', code: 'ADMIN01', password: 'admin123' },
-      { role: 'Bibliotecario', code: 'LIB01', password: 'password123' },
-      { role: 'Docente', code: 'TEA01', password: 'password123' },
-      { role: 'Estudiante', code: '20240001', password: 'password123' },
-      { role: 'Estudiante', code: '20240002', password: 'password123' },
-      { role: 'Estudiante', code: '20240003', password: 'password123' },
-      { role: 'Estudiante', code: '20240004', password: 'password123' },
-      { role: 'Estudiante', code: '20240005', password: 'password123' },
-      { role: 'Estudiante', code: '20240006', password: 'password123' },
-      { role: 'Estudiante', code: '20240007', password: 'password123' },
-      { role: 'Estudiante', code: '20240009', password: 'password123' },
-      { role: 'Estudiante', code: '2413010296', password: 'password123' },
-      { role: 'Estudiante', code: '1234567890', password: 'password123' }
-    ],
-    tags: [
-      { name: 'React', colorClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-500/20' },
-      { name: 'Vite', colorClass: 'bg-amber-50 dark:bg-yellow-500/10 text-amber-600 dark:text-yellow-400 border-amber-100 dark:border-yellow-500/20' },
-      { name: 'TailwindCSS', colorClass: 'bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400 border-teal-100 dark:border-teal-500/20' },
-      { name: 'React Query', colorClass: 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-100 dark:border-indigo-500/20' },
-      { name: 'React Router', colorClass: 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-100 dark:border-indigo-500/20' },
-      { name: 'TypeScript', colorClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-500/20' },
-      { name: 'Prisma ORM', colorClass: 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-100 dark:border-indigo-500/20' },
-      { name: 'PostgreSQL', colorClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-500/20' },
-      { name: 'JWT', colorClass: 'bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-100 dark:border-purple-500/20' },
-      { name: 'Nest.js', colorClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-500/20' },
-      { name: 'Node.js', colorClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-500/20' },
-      { name: 'Docker Compose', colorClass: 'bg-sky-50 dark:bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-100 dark:border-sky-500/20' },
-      { name: 'WebSockets', colorClass: 'bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-100 dark:border-orange-500/20' },
-      { name: 'REST API', colorClass: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-100 dark:border-emerald-500/20' },
-    ],
-    iconClass: 'fa-solid fa-chart-line',
-    iconBgClass: 'bg-blue-600',
-    iconShadowClass: 'shadow-blue-500/30',
-    hoverShadowClass: 'hover:shadow-blue-500/10',
-    githubUrl: [
-      {
-        name: 'Repo. Frontend',
-        url: 'https://github.com/alessudc/libraryManager-frontend'
-      },
-      {
-        name: 'Repo. Backend',
-        url: 'https://github.com/alessudc/libraryManager-backend'
-      }
-    ],
-    demoUrl: 'https://library-manager-frontend-repo.vercel.app/auth/login'
-  },
-  {
-    id: '2',
-    title: 'Interfaz Web de Alta Conversión (Estilo Interbank)',
-    description: 'Desarrollo pixel-perfect de una plataforma bancaria moderna, enfocada en la navegación fluida y en maximizar la conversión de usuarios a clientes. Totalmente responsiva y optimizada para carga ultra rápida, garantizando una excelente experiencia en dispositivos móviles y de escritorio.',
-    image: 'https://mir-s3-cdn-cf.behance.net/projects/404/1af40c58358537.Y3JvcCwxNDAzLDEwOTgsMCww.png',
-    category: 'frontend',
-    tags: [
-      { name: 'React', colorClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-500/20' },
-      { name: 'Vite', colorClass: 'bg-amber-50 dark:bg-yellow-500/10 text-amber-600 dark:text-yellow-400 border-amber-100 dark:border-yellow-500/20' },
-      { name: 'TailwindCSS', colorClass: 'bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400 border-teal-100 dark:border-teal-500/20' },
-      { name: 'TypeScript', colorClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-500/20' },
-    ],
-    iconClass: 'fa-solid fa-shield-halved',
-    iconBgClass: 'bg-purple-600',
-    iconShadowClass: 'shadow-purple-500/30',
-    hoverShadowClass: 'hover:shadow-purple-500/10',
-    githubUrl: [
-      {
-        name: 'Repo. Frontend',
-        url: 'https://github.com/AlessUDC/layout-replica-interbank-homepage'
-      }
-    ],
-    demoUrl: 'https://layout-replica-interbank-homepage.vercel.app/'
-  },
-  {
-    id: '3',
-    title: 'Réplica de Catálogo Web (Estilo Toyota Perú)',
-    description: 'Réplica responsiva y optimizada para e-commerce de Toyota Perú, enfocada en facilitar la visualización del catálogo de productos y maximizar la interacción del usuario. Estructurada bajo buenas prácticas de UI/UX para aumentar el tráfico y captación de clientes potenciales.',
-    image: 'https://www.toyotaperu.com.pe/sites/default/files/2025-03/cabecera-ofertas-y-promociones-mobile.webp',
-    category: 'frontend',
-    tags: [
-      { name: 'React', colorClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-500/20' },
-      { name: 'Vite', colorClass: 'bg-amber-50 dark:bg-yellow-500/10 text-amber-600 dark:text-yellow-400 border-amber-100 dark:border-yellow-500/20' },
-      { name: 'TailwindCSS', colorClass: 'bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400 border-teal-100 dark:border-teal-500/20' },
-      { name: 'TypeScript', colorClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-500/20' },
-    ],
-    iconClass: 'fa-solid fa-brain',
-    iconBgClass: 'bg-green-600',
-    iconShadowClass: 'shadow-green-500/30',
-    hoverShadowClass: 'hover:shadow-green-500/10',
-    githubUrl: [{ name: 'Repo. Frontend', url: 'https://github.com/AlessUDC/layout-replica-toyota' }],
-    demoUrl: 'https://layout-replica-toyota.vercel.app/'
-  },
-  {
-    id: '4',
-    title: 'Rediseño Web Estratégico (ABR Grupo Consultor)',
-    description: 'Rediseño web enfocado en mejorar la identidad digital y la generación de leads calificados de ABR Grupo Consultor. La nueva experiencia optimiza la navegación y facilita la solicitud directa de asesorías.',
-    image: 'https://www.abrgrupoconsultor.pe/images/service_formalizacion.webp',
-    category: 'frontend',
-    tags: [
-      { name: 'React', colorClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-500/20' },
-      { name: 'Vite', colorClass: 'bg-amber-50 dark:bg-yellow-500/10 text-amber-600 dark:text-yellow-400 border-amber-100 dark:border-yellow-500/20' },
-      { name: 'TailwindCSS', colorClass: 'bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400 border-teal-100 dark:border-teal-500/20' },
-      { name: 'TypeScript', colorClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-500/20' },
-    ],
-    iconClass: 'fa-solid fa-brain',
-    iconBgClass: 'bg-green-600',
-    iconShadowClass: 'shadow-green-500/30',
-    hoverShadowClass: 'hover:shadow-green-500/10',
-    githubUrl: [{ name: 'Repo. Frontend', url: 'https://github.com/AlessUDC/layout-home-abrConsultor' }],
-    demoUrl: 'https://layout-home-abr-consultor.vercel.app/'
-  },
-  {
-    id: '5',
-    title: 'Lado del servidor de Gestor Bibliotecario',
-    description: 'Servicio de backend robusto y de alto rendimiento que centraliza y protege toda la lógica del negocio. Implementa autenticación segura con JWT, automatización de notificaciones por correo y bases de datos relacionales optimizadas para manejar altas cargas de tráfico diario.',
-    image: 'https://www.ionos.es/digitalguide/fileadmin/DigitalGuide/Teaser/archivierung-t.jpg',
-    category: 'backend',
-    tags: [
-      { name: 'NestJS', colorClass: 'bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 border-red-100 dark:border-red-500/20' },
-      { name: 'TypeScript', colorClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-500/20' },
-      { name: 'Node.js', colorClass: 'bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-400 border-green-100 dark:border-green-500/20' },
-      { name: 'PostgreSQL', colorClass: 'bg-sky-50 dark:bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-100 dark:border-sky-500/20' },
-      { name: 'Prisma ORM', colorClass: 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-100 dark:border-indigo-500/20' },
-      { name: 'JWT', colorClass: 'bg-amber-50 dark:bg-yellow-500/10 text-amber-600 dark:text-yellow-400 border-amber-100 dark:border-yellow-500/20' },
-      { name: 'bcrypt', colorClass: 'bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-100 dark:border-orange-500/20' },
-      { name: 'Class Validator', colorClass: 'bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-100 dark:border-purple-500/20' },
-      { name: 'Class Transformer', colorClass: 'bg-violet-50 dark:bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-100 dark:border-violet-500/20' },
-      { name: 'Mailgun', colorClass: 'bg-pink-50 dark:bg-pink-500/10 text-pink-600 dark:text-pink-400 border-pink-100 dark:border-pink-500/20' },
-      { name: 'Nodemailer', colorClass: 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-100 dark:border-cyan-500/20' },
-      { name: 'Nest Schedule', colorClass: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-100 dark:border-emerald-500/20' },
-      { name: 'UUID', colorClass: 'bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400 border-teal-100 dark:border-teal-500/20' },
-      { name: 'Jest', colorClass: 'bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-100 dark:border-rose-500/20' },
-      { name: 'SuperTest', colorClass: 'bg-fuchsia-50 dark:bg-fuchsia-500/10 text-fuchsia-600 dark:text-fuchsia-400 border-fuchsia-100 dark:border-fuchsia-500/20' },
-      { name: 'ESLint', colorClass: 'bg-purple-50 dark:bg-purple-600/10 text-purple-700 dark:text-purple-300 border-purple-100 dark:border-purple-600/20' },
-      { name: 'Prettier', colorClass: 'bg-pink-50 dark:bg-pink-600/10 text-pink-700 dark:text-pink-300 border-pink-100 dark:border-pink-600/20' },
-    ],
-    iconClass: 'fa-solid fa-brain',
-    iconBgClass: 'bg-green-600',
-    iconShadowClass: 'shadow-green-500/30',
-    hoverShadowClass: 'hover:shadow-green-500/10',
-    githubUrl: [{ name: 'Repo. Backend', url: 'https://github.com/AlessUDC/libraryManager-backend-repo' }],
-    demoUrl: '#'
-  },
-  {
-    id: '6',
-    title: 'Interfaz Gráfica de Gestor Bibliotecario',
-    description: 'Interfaz de usuario interactiva y optimizada para la administración operativa. Cuenta con paneles analíticos interactivos con gráficos en tiempo real, lector de códigos QR para agilizar los préstamos y flujos de trabajo dinámicos con arrastrar y soltar.',
-    image: 'https://img.freepik.com/foto-gratis/tiro-medio-mujer-auriculares-alrededor-cuello-leyendo-book0_23-2148397145.jpg?semt=ais_hybrid&w=740&q=80',
-    category: 'frontend',
-    tags: [
-      { name: 'Figma', colorClass: 'bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-100 dark:border-cyan-500/20' },
-      { name: 'Prototipo', colorClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-500/20' },
-      { name: 'UI/UX', colorClass: 'bg-violet-50 dark:bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-100 dark:border-violet-500/20' },
-      { name: 'Tailwind CSS', colorClass: 'bg-sky-50 dark:bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-100 dark:border-sky-500/20' },
-      { name: 'React Router', colorClass: 'bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 border-red-100 dark:border-red-500/20' },
-      { name: 'React Query', colorClass: 'bg-pink-50 dark:bg-pink-500/10 text-pink-600 dark:text-pink-400 border-pink-100 dark:border-pink-500/20' },
-      { name: 'Axios', colorClass: 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-100 dark:border-indigo-500/20' },
-      { name: 'HTML', colorClass: 'bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-100 dark:border-orange-500/20' },
-      { name: 'Zod', colorClass: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-100 dark:border-emerald-500/20' },
-      { name: 'Headless UI', colorClass: 'bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-100 dark:border-purple-500/20' },
-      { name: 'Heroicons', colorClass: 'bg-amber-50 dark:bg-yellow-500/10 text-amber-600 dark:text-yellow-400 border-amber-100 dark:border-yellow-500/20' },
-      { name: 'DnD Kit', colorClass: 'bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400 border-teal-100 dark:border-teal-500/20' },
-      { name: 'Recharts', colorClass: 'bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-400 border-green-100 dark:border-green-500/20' },
-      { name: 'React Toastify', colorClass: 'bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-100 dark:border-amber-500/20' },
-      { name: 'HTML5 QR Code', colorClass: 'bg-lime-50 dark:bg-lime-500/10 text-lime-600 dark:text-lime-400 border-lime-100 dark:border-lime-500/20' },
-      { name: 'React Barcode', colorClass: 'bg-fuchsia-50 dark:bg-fuchsia-500/10 text-fuchsia-600 dark:text-fuchsia-400 border-fuchsia-100 dark:border-fuchsia-500/20' },
-      { name: 'Chakra UI', colorClass: 'bg-blue-50 dark:bg-blue-600/10 text-blue-700 dark:text-blue-300 border-blue-100 dark:border-blue-600/20' },
-      { name: 'ESLint', colorClass: 'bg-purple-50 dark:bg-purple-600/10 text-purple-700 dark:text-purple-300 border-purple-100 dark:border-purple-600/20' }
-    ],
-    iconClass: 'fa-solid fa-brain',
-    iconBgClass: 'bg-green-600',
-    iconShadowClass: 'shadow-green-500/30',
-    hoverShadowClass: 'hover:shadow-green-500/10',
-    githubUrl: [{ name: 'Repo. Frontend', url: 'https://github.com/AlessUDC/libraryManager-frontend-repo' }],
-    demoUrl: 'https://library-manager-frontend-repo.vercel.app/auth/login'
-  },
-  {
-    id: '7',
-    title: 'Aula Virtual Universitaria (LMS)',
-    description: 'Prototipo funcional de plataforma educativa (LMS) diseñado para centralizar recursos académicos. Estructura el acceso diferenciado a estudiantes y docentes con una interfaz intuitiva para la gestión de clases, notas y reportes.',
-    image: 'https://i.pinimg.com/736x/a3/02/61/a302615ab03df90ff931303f65e24170.jpg',
-    category: 'frontend',
-    testCredentials: [
-      { role: 'Docente', email: 'profesoriedu@untels.edu.pe', password: '456789' },
-      { role: 'Estudiante', email: 'alumnoiedu@untels.edu.pe', password: '123456' }
-    ],
-    tags: [
-      { name: 'HTML', colorClass: 'bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-100 dark:border-orange-500/20' },
-      { name: 'CSS', colorClass: 'bg-blue-50 dark:bg-blue-600/20 text-blue-700 dark:text-blue-400 border-blue-100 dark:border-blue-600/50' },
-      { name: 'JavaScript', colorClass: 'bg-amber-50 dark:bg-yellow-500/10 text-amber-600 dark:text-yellow-400 border-amber-100 dark:border-yellow-500/20' },
-    ],
-    iconClass: 'fa-solid fa-brain',
-    iconBgClass: 'bg-green-600',
-    iconShadowClass: 'shadow-green-500/30',
-    hoverShadowClass: 'hover:shadow-green-500/10',
-    githubUrl: [{ name: 'Repo. Frontend', url: 'https://github.com/AlessUDC/libraryManager-frontend-repo' }],
-    demoUrl: 'https://famous-pika-1f6da1.netlify.app/login.html'
-  }
-];
+import { projectsData } from '@/data/index';
 
 export default function Projects() {
   const [filter, setFilter] = useState<string>('all');
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
   const filteredProjects = projectsData.filter(
-    (project) => filter === 'all' || project.category === filter
+    (project) =>
+      filter === 'all' ||
+      (Array.isArray(project.category)
+        ? project.category.includes(filter as any)
+        : project.category === filter)
   );
+
+  const checkScroll = () => {
+    if (carouselRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+      setCanScrollLeft(scrollLeft > 5);
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 5);
+    }
+  };
+
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (el) {
+      el.addEventListener('scroll', checkScroll);
+      checkScroll();
+      window.addEventListener('resize', checkScroll);
+    }
+    return () => {
+      if (el) {
+        el.removeEventListener('scroll', checkScroll);
+      }
+      window.removeEventListener('resize', checkScroll);
+    };
+  }, [filteredProjects]);
+
+  useEffect(() => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+    }
+  }, [filter]);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (carouselRef.current) {
+      const { clientWidth } = carouselRef.current;
+      const scrollAmount = direction === 'left' ? -clientWidth * 0.75 : clientWidth * 0.75;
+      carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   return (
     <main className="py-24 px-8 lg:px-20 relative z-10 bg-slate-50 dark:bg-complementary-950" id="projects">
@@ -230,38 +69,75 @@ export default function Projects() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-syne text-3xl md:text-5xl font-bold mb-4 md:mb-6 lg:mb-8 text-gray-900 dark:text-white">Proyectos donde demuestro mi capacidad para resolver retos técnicos</h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl lg:text-xl max-w-2xl mx-auto font-light">
-            Una muestra de plataformas web y aplicaciones a medida diseñadas bajo altos estándares de rendimiento, escalabilidad y diseño funcional para potenciar negocios.
+          <h2 className="font-syne text-2xl md:text-4xl font-bold mb-4 md:mb-6 lg:mb-8 text-gray-900 dark:text-white">
+            Retos técnicos recientes
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg lg:text-xl max-w-2xl mx-auto font-light">
+            Desde proyectos más versátiles hasta proyectos de complejidad media donde destaco mis habilidades en el desarrollo web.
           </p>
         </motion.div>
 
-        {/* Filter Controls */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {['all', 'frontend', 'backend', 'fullstack'].map((f) => (
+        {/* Filter and Navigation Row */}
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-6 mb-12">
+          {/* Filter Controls */}
+          <div className="flex flex-wrap justify-center sm:justify-start gap-3">
+            {['all', 'frontend', 'backend', 'fullstack'].map((f) => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                className={`px-6 py-2.5 rounded-full text-sm lg:text-base font-medium transition-all duration-300 cursor-pointer ${filter === f
+                  ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300 hover:text-gray-900 dark:bg-complementary-800 dark:text-gray-400 dark:hover:bg-complementary-700 dark:hover:text-white'
+                  }`}
+              >
+                {f === 'all' ? 'Todos' : f.charAt(0).toUpperCase() + f.slice(1)}
+              </button>
+            ))}
+          </div>
+
+          {/* Navigation Buttons */}
+          <div className="flex items-center gap-3">
             <button
-              key={f}
-              onClick={() => setFilter(f)}
-              className={`px-6 py-2.5 rounded-full text-sm lg:text-base font-medium transition-all duration-300 cursor-pointer ${filter === f
-                ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300 hover:text-gray-900 dark:bg-complementary-800 dark:text-gray-400 dark:hover:bg-complementary-700 dark:hover:text-white'
+              onClick={() => scroll('left')}
+              disabled={!canScrollLeft}
+              className={`p-3 rounded-full border transition-all duration-300 cursor-pointer ${canScrollLeft
+                ? 'border-gray-300 dark:border-complementary-700 text-gray-700 dark:text-gray-300 hover:bg-primary-500 hover:text-white hover:border-primary-500'
+                : 'border-gray-200 dark:border-complementary-850 text-gray-400 dark:text-gray-600 cursor-not-allowed opacity-40'
                 }`}
+              aria-label="Anterior"
             >
-              {f === 'all' ? 'Todos' : f.charAt(0).toUpperCase() + f.slice(1)}
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
             </button>
-          ))}
+            <button
+              onClick={() => scroll('right')}
+              disabled={!canScrollRight}
+              className={`p-3 rounded-full border transition-all duration-300 cursor-pointer ${canScrollRight
+                ? 'border-gray-300 dark:border-complementary-700 text-gray-700 dark:text-gray-300 hover:bg-primary-500 hover:text-white hover:border-primary-500'
+                : 'border-gray-200 dark:border-complementary-850 text-gray-400 dark:text-gray-600 cursor-not-allowed opacity-40'
+                }`}
+              aria-label="Siguiente"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
 
-        {/* Project Cards Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
+        {/* Project Cards Carousel Container */}
+        <div
+          ref={carouselRef}
+          className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-6 pb-6 scrollbar-none [&::-webkit-scrollbar]:hidden"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, idx) => (
               <motion.div
                 layout
                 key={project.id}
+                className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(33%-18px)] shrink-0 snap-start"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
@@ -271,7 +147,7 @@ export default function Projects() {
               </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
     </main>
   );

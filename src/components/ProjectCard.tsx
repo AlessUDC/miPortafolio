@@ -8,7 +8,7 @@ export type ProjectData = {
   title: string;
   description: string;
   image: string;
-  category: 'frontend' | 'backend' | 'fullstack';
+  category: 'frontend' | 'backend' | 'fullstack' | ('frontend' | 'backend' | 'fullstack')[];
   tags: { name: string; colorClass: string }[];
   iconClass: string;
   iconBgClass: string;
@@ -61,7 +61,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading='lazy'
           />
-          <div className="absolute inset-0 bg-linear-to-t from-white dark:from-complementary-950 via-transparent to-transparent opacity-85"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-white dark:from-complementary-950 via-transparent to-transparent opacity-58"></div>
         </div>
 
         {/* Contenido de la Card */}
@@ -77,28 +77,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 {project.description}
               </p>
             </div>
-
-            {/* Resumen de Credenciales */}
-            {project.testCredentials && project.testCredentials.length > 0 && (
-              <div className="mt-2 p-3 bg-gray-50 dark:bg-complementary-950/50 border border-gray-200 dark:border-gray-800 rounded-xl flex flex-col gap-2">
-                <div className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span className="lg:text-sm">Acceso de prueba:</span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-2">
-                  <div className="text-xs text-gray-700 dark:text-gray-300 bg-white dark:bg-complementary-900/30 p-2 rounded-lg border border-gray-200 dark:border-gray-800/50">
-                    <span className="font-bold lg:text-sm text-primary-600 dark:text-primary-400 block mb-0.5 lg:mb-1">{project.testCredentials[0].role}</span>
-                    <div className="font-mono text-gray-500 dark:text-gray-400 flex flex-col gap-0.5">
-                      <div className="lg:text-xs"><span className="text-gray-400 dark:text-gray-500">User:</span> {project.testCredentials[0].email || project.testCredentials[0].code}</div>
-                      <div className="lg:text-xs"><span className="text-gray-400 dark:text-gray-500">Pass:</span> {project.testCredentials[0].password}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
 
             {/* Botón Ver Más detalles */}
             <button
@@ -247,30 +225,33 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     </div>
 
                     {/* Etiquetas */}
-                    <div>
-                      <h4 className="text-sm font-bold text-gray-900 dark:text-white mb-3 font-syne">Tecnologías</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.map((tag, idx) => (
-                          <span
-                            key={idx}
-                            className={`text-xs font-medium px-2.5 py-1 ${tag.colorClass} rounded-md border`}
-                          >
-                            {tag.name}
-                          </span>
-                        ))}
-                      </div>
+                    <div className={`flex flex-flow-col flex-wrap gap-2 overflow-x-auto max-w-full pb-2
+                      ${project.tags.length > 10 ? 'h-25' : 'h-auto'}`}>
+                      {project.tags.map((tag, idx) => (
+                        <span
+                          key={idx}
+                          className={`h-auto text-xs font-medium px-2.5 py-1 ${tag.colorClass} rounded-md border shrink-0 whitespace-nowrap`}
+                        >
+                          {tag.name}
+                        </span>
+                      ))}
                     </div>
 
                     {/* Credenciales */}
                     {project.testCredentials && project.testCredentials.length > 0 && (
-                      <div>
+                      // Cambié 'flex flex-wrap' a 'flex flex-col' para que el título no se pelee por espacio horizontal con el contenedor del scroll
+                      <div className='flex flex-col w-full'>
                         <h4 className="text-sm font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2 font-syne">
                           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                           Credenciales de Acceso
                         </h4>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+                        <div className="flex flex-nowrap gap-3 overflow-x-auto w-full pb-2 scrollbar-thin">
                           {project.testCredentials.map((cred, index) => (
-                            <div key={index} className="text-xs text-gray-750 dark:text-gray-300 bg-gray-50 dark:bg-complementary-950/60 p-3 rounded-lg border border-gray-200 dark:border-gray-800">
+                            <div
+                              key={index}
+                              className="shrink-0 w-[260px] text-xs text-gray-750 dark:text-gray-300 bg-gray-50 dark:bg-complementary-950/60 p-3 rounded-lg border border-gray-200 dark:border-gray-800"
+                            >
                               <span className="font-bold text-primary-600 dark:text-primary-400 block mb-1.5">{cred.role}</span>
                               <div className="font-mono text-gray-500 dark:text-gray-400 flex flex-col gap-1">
                                 {cred.email && <div><span className="text-gray-400 dark:text-gray-500">User:</span> {cred.email}</div>}
