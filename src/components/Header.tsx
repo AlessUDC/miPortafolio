@@ -116,7 +116,7 @@ export default function Header() {
                             2xl:[-webkit-mask-image:none]
                             ${atEnd
                                 ? "[mask-image:none] [-webkit-mask-image:none]"
-                                : "[mask-image:linear-gradient(to_right,black_0%,black_85%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,black_0%,black_85%,transparent_100%)]"
+                                : "[mask-image:linear-gradient(to_right,black_0%,black_85%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,black_0%,black_55%,transparent_100%)]"
                             }
                         `}
                     >

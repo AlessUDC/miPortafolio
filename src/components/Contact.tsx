@@ -100,7 +100,7 @@ export default function Contact() {
                         Hablemos sobre cómo puedo aportar a tu equipo <br className="hidden $inline-block" />
                     </h2>
                     <p className="mt-6 text-gray-400 max-w-2xl mx-auto text-base md:text-lg font-light">
-                        Abierto a posiciones como developer frontend, backend o fullstack, y a conversaciones sobre proyectos técnicos. La forma más directa es por correo o LinkedIn.
+                        Abierto a posiciones como developer frontend, backend o fullstack, y a conversaciones sobre proyectos técnicos.
                     </p>
                 </motion.div>
 

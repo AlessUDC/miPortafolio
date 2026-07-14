@@ -16,7 +16,7 @@ export default function Hero() {
         </h1>
 
         <p className="text-sm min-[410px]:text-base md:text-xl lg:text-3xl xl:text-xl font-light text-gray-600 dark:text-gray-400 text-left mb-8 max-w-2xl lg:max-w-3xl leading-relaxed">
-          Trabajo principalmente en el ecosistema JavaScript/TypeScript—React, Next.js y Node.js— con foco en resolver problemas técnicos concretos: rendimiento, escalabilidad y mantenibilidad del código a largo plazo. Busco sumarme a un equipo donde pueda seguir creciendo como developer.
+          Trabajo principalmente en el ecosistema <span className="font-black">JavaScript/TypeScript—React</span>, <span className="font-black">Next.js</span> y <span className="font-black">Nest.js</span>— con foco en resolver problemas técnicos concretos: rendimiento, escalabilidad y mantenibilidad del código a largo plazo. Busco sumarme a un equipo donde pueda seguir creciendo como developer.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 min-[410px]:gap-6 w-full sm:w-auto">
