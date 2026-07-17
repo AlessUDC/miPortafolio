@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://paolo-ursua.vercel.app/"),
@@ -34,6 +35,8 @@ export const metadata: Metadata = {
     appId: "1234567890",
   },
 };
+
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 export default function RootLayout({
   children,
@@ -71,6 +74,7 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
       </body>
+      {gaId && <GoogleAnalytics gaId={gaId} />}
     </html>
   );
 }
