@@ -199,6 +199,7 @@ export const projectsData: ProjectData[] = [
             y mejorar nuestras habilidades en el desarrollo de software y lógica de programacion y de negocio. Este proyecto lo abordé desde
             un enfoque MVP, para lo cual dejé pendiente potenciales funcionalidades como la integración de paga con bancos reales, retiro y canjeo
             de dinero real del usuario. El proyecto lo terminé en el plazo de 19 días.
+            --- Créate una cuenta e inicia sesión gratis para probarlo ---
         `,
         image: 'https://andresledo.es/_astro/como-ser-desarrollador-web.YVJZ19y1.webp',
         category: ['fullstack', 'frontend', 'backend'],
@@ -230,6 +231,6 @@ export const projectsData: ProjectData[] = [
             { name: 'Repo. Frontend', url: 'https://github.com/AlessUDC/freelancerFinancesManager-frontend' },
             { name: 'Repo. Backend', url: 'https://github.com/AlessUDC/freelancerFinancesManager-backend' }
         ],
-        demoUrl: '#'
+        demoUrl: 'https://freelancer-finances-manager-fronten.vercel.app/'
     }
 ];
